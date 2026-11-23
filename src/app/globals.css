@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #ffd8b6;
+  --color-primary-100: #ffc9a3;
+  --color-primary-200: #ffb389;
+  --color-primary-300: #ff9262;
+  --color-primary-400: #ff5b14;
+  --color-primary-500: #e33f00;
+  --color-primary-600: #c42700;
+  --color-primary-700: #a41100;
+  --color-primary: #ff5b14;
+  --color-brand: #ff5b14;
+  --color-action: #ff5b14;
+
+  --color-background: #0b0a09;
+  --color-foreground: #efe8dc;
+
+  --color-surface: #161412;
+  --color-surface-raised: #1c1a18;
+  --color-surface-hover: #26221f;
+  --color-surface-border: #2e2925;
+
+  --color-cream: #efe8dc;
+  --color-ash: #8c847a;
+  --color-charcoal: #1c1a18;
+  --color-obsidian: #0b0a09;
+
+  --font-display: "Big Shoulders Display", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  --shadow-ember: 0 0 25px -5px rgba(255, 91, 20, 0.35);
+  --shadow-ember-lg: 0 0 45px -10px rgba(255, 91, 20, 0.5);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+}
+
+:root {
+  --bg-primary: #0b0a09;
+  --fg-primary: #efe8dc;
+  --accent-ember: #ff5b14;
+  --surface-panel: #161412;
+  --surface-border: #24201c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0b0a09;
+  color: #efe8dc;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #0b0a09;
+  color: #efe8dc;
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0a09;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #26221f;
+  border-radius: 9999px;
+  border: 1px solid #1c1a18;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5b14;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid #ff5b14;
+  outline-offset: 3px;
+}
+
+/* Steam plume animations */
+@keyframes steamDrift {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-8px) scaleX(1.15) translateX(2px);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-18px) scaleX(0.9) translateX(-2px);
+    opacity: 0;
+  }
+}
+
+@keyframes emberPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 91, 20, 0.25);
+    border-color: rgba(255, 91, 20, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 91, 20, 0.55);
+    border-color: rgba(255, 91, 20, 0.8);
+  }
+}
+
+@keyframes coffeeFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-ember-pulse {
+  animation: emberPulse 3.5s ease-in-out infinite;
+}
+
+.animate-coffee-float {
+  animation: coffeeFloat 4.2s ease-in-out infinite;
+}
+
+/* Hide scrollbar for clean horizontal swipe on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
