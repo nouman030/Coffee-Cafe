@@ -53,12 +53,22 @@ test.describe("NS Coffee Landing Page Experience", () => {
     await expect(drawer).toContainText("ORDER DISPATCHED!");
   });
 
-  test("should display special combo offers with discounts", async ({ page }) => {
+  test("should display special combo offers with discounts and auto-navigator controls", async ({ page }) => {
     const comboSection = page.locator("#combos");
     await expect(comboSection).toBeVisible();
     await expect(comboSection).toContainText("The Morning Ritual Combo");
     await expect(comboSection).toContainText("The Roaster's Tasting Flight");
     await expect(comboSection).toContainText("The Barista Reserve & Home Tin");
+
+    // Verify left and right navigator buttons exist and work
+    const nextBtn = page.getByRole("button", { name: "Next combo offer" });
+    const prevBtn = page.getByRole("button", { name: "Previous combo offer" });
+    await expect(nextBtn).toBeVisible();
+    await expect(prevBtn).toBeVisible();
+
+    // Verify stepper advances on click
+    await nextBtn.click();
+    await expect(comboSection).toContainText("02");
   });
 
   test("should provide interactive roast finder recommendations", async ({ page }) => {

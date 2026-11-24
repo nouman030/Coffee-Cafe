@@ -165,6 +165,11 @@ export function CartDrawer() {
                 )}
 
                 <div className="flex items-center justify-between text-sm">
+                  <span className="text-[#8c847a]">Subtotal</span>
+                  <span className="font-mono text-sm text-[#efe8dc]">${subtotal.toFixed(2)}</span>
+                </div>
+
+                <div className="flex items-center justify-between text-sm">
                   <span className="text-[#8c847a]">Estimated Tax & Prep</span>
                   <span className="font-mono text-xs text-[#8c847a]">Calculated at Counter</span>
                 </div>
